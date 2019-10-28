@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>1. Installation &#8212; ExPy  documentation</title>
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.base.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Prerequisites" href="tutorial.html" />
+    <link rel="prev" title="Welcome to ExPy’s documentation!" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="1. Prerequisites"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to ExPy’s documentation!"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">ExPy  documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installation">
+<h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>ExPy is designed based on SymPy and Pandas, and does require other library to be installed first.
+The recommended method of installation is through Anaconda, as well as several other useful libraries.</p>
+</div>
+<div class="section" id="anaconda">
+<h1>2. Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h1>
+<p>Anaconda is a free Python distribution that includes many more useful packages for scientific computing.
+For example, without Matplotlib, only simple text-based plotting is enabled.
+If you already have Anaconda and want to update ExPy to the latest version, use:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">conda</span> <span class="pre">update</span> <span class="pre">expy</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="git">
+<h1>3. Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
+<p>If you wish to contribute to ExPy or like to get the latest updates, install ExPy from git.
+To download the repository, execute the following from the command line:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/expy/expy.git</span>
+<span class="pre">`</span></code></p>
+<p>To update to the latest version, go into your repository and execute:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="run-expy">
+<h1>4. Run ExPy<a class="headerlink" href="#run-expy" title="Permalink to this headline">¶</a></h1>
+<p>After installation, it is best to verify that your freshly-installed ExPy works.
+To do this, start up Python and import the ExPy libraries:
+<code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">$</span> <span class="pre">Python</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">import</span> <span class="pre">expy</span> <span class="pre">as</span> <span class="pre">ep</span>
+<span class="pre">`</span></code></p>
+<p>From here, execute some simple ExPy statements like the ones below:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">f</span> <span class="pre">=</span> <span class="pre">ep.F(ep.y_,</span> <span class="pre">ep.x_**2)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">f.set(ep.x_,</span> <span class="pre">2)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">f.tex()</span>
+<span class="pre">&lt;IPython.core.display.Latex</span> <span class="pre">object&gt;</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="xetex">
+<h1>5. XeTeX<a class="headerlink" href="#xetex" title="Permalink to this headline">¶</a></h1>
+<p>If you wish to convert jupyter notebook to pdf, install XeTeX and pass the path.
+XeTeX is an extension of TeX that integrates TeX’s typesetting capabilities.
+The command ‘nbconvert’ in jupyter does require this library and os path into XeTeX.
+If you already have Tex Live, XeTeX is installed at the same time.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">1. Installation</a></li>
+<li><a class="reference internal" href="#anaconda">2. Anaconda</a></li>
+<li><a class="reference internal" href="#git">3. Git</a></li>
+<li><a class="reference internal" href="#run-expy">4. Run ExPy</a></li>
+<li><a class="reference internal" href="#xetex">5. XeTeX</a></li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="index.html"
+                          title="Previous page">&larr; Welcome to ExPy’s documentation!</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="tutorial.html"
+                          title="Next page">&rarr; 1. Prerequisites</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="1. Prerequisites"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to ExPy’s documentation!"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">ExPy  documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, YouseiTakei.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
