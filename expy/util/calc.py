@@ -1,3 +1,10 @@
+""" here is a process of simple numerical calculations.
+    define a function that return a value calculated on the input value.
+    - expy-python ver.1.2.0 ©tseijp
+"""
+
+
+
 ### package
 import math
 import numpy as np
@@ -5,17 +12,20 @@ import pandas as pd
 import sympy as sym
 from sympy import init_printing
 from sympy import sqrt,sin,cos,tan,exp,log,diff
+
 ### helper
-from .base import *
+from .base import to_multi_d
 
 '''1.解析-------------------------------------------------------------------------'''
 #平均
 def mean(a):func=lambda a:np.mean(a);return to_multi_d(func,a,1)
+
 #関数のすべての変数に値を代入
 def subs(func,sym,val):
     for i in range(len(val)):
         func = func.subs([(sym[i],val[i])])
     return func
+
 #標準不確かさ計算
 def STDEV(data):
     def STDEV_unit(d):
@@ -31,6 +41,7 @@ def STDEV(data):
             return output
     func=lambda d:STDEV_unit(d)
     return to_multi_d(func,data,1)
+
 #平均値の不確かさ計算
 def uncrt(data):
     def uncrt_unit (data):
@@ -85,7 +96,7 @@ def weighted_mean(mean_all, uncrt_all):
 
 
 
-''' (非推奨) -----------------------------------------------------------------'''
+''' (非推奨) -----------------------------------------------------------------
 #合成不確かさ
 def syn_uncrt(func=sym.Symbol('f'),
               uncrt_sym=[],
@@ -141,3 +152,4 @@ def syn_uncrt(func=sym.Symbol('f'),
                           uncrt_unit_all]    #各計算したInt：1.0
     unit=lambda u,v:syn_uncrt_unit(u,v)
     return to_multi_d(unit,uncrt_all,1,val_all)
+'''

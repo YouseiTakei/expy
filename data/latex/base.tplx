@@ -10,7 +10,7 @@ This template does not define a docclass, the inheriting class must define this.
 %===============================================================================
 
 ((* block header *))
-    ((* block docclass *))((* endblock docclass *))
+    ((* block docclass *))\documentclass[11pt]{article}((* endblock docclass *))
 
     ((* block packages *))
     % my changed
@@ -19,9 +19,13 @@ This template does not define a docclass, the inheriting class must define this.
     \setCJKmainfont[BoldFont=IPAexGothic]{IPAexMincho}
     \setCJKsansfont{IPAexGothic}
     \setCJKmonofont{IPAGothic}
+
     % my changed
     % \usepackge{jalinebreak}
     \setlength{\parindent}{0in}
+
+    % my changed now
+    \usepackage{graphicx}
 
     % Nicer default font (+ math font) than Computer Modern for most use cases
     \usepackage{mathpazo}

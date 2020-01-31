@@ -1,13 +1,14 @@
 
-# ExPy
+# ExPy 1.2.1
 
 The sophisticated tool needed for scientific computing.
 
-- **Documentation:** https://youseitakei.github.io/expy
+- **Documentation:** ~https://youseitakei.github.io/expy~
 - **Source code:** https://github.com/YouseiTakei/expy
 - **Contributing:** coming soon
 - **Bug reports:** coming soon
-- **Website:** coming soon
+- **Website:** https://tsei.jp
+- **Contact** contact@tsei.jp
 
 It provides:
 
@@ -16,14 +17,14 @@ It provides:
 
 To get the latest version :
 
-- ~from https://pypi.python.org/pypl/experiment-python/~
-- ~`$ pip install expy-python`~
+- from https://pypi.python.org/project/expy-python/
+- `$ pip install expy-python`
 
 To get the latest version do:
 
 - `$ git clone git://github.com/YouseiTakei/expy.git`
 - `$ cd expy`
-- `$ python setup.py`
+- `$ python setup.py install`
 
 Documentation and usage:
 
@@ -34,7 +35,7 @@ From this directory, start Jupyter notebook and:
 >>> from expy  import F, x_, y_,
 >>> f = F(y_, x_**x_)
 >>> f.set(x_, 0)
->>> f.tex()
+>>> f()
 ```
 
 Convert your Jupyter notebook. start cmd line and:
@@ -43,6 +44,7 @@ $ nbc -a -p -t
 ```
 
 Usage Example:
+
 |Usage|Detail|  
 |:-|:-|  
 |`nbc -h`| check args help|  
@@ -58,7 +60,7 @@ Usage Example:
 Other Usage Hints:
 - If you want to change template file, you can edit file in `~/.expy/latex/article.tplx`
 - If you don't have auth and can't install this, you can use `$pip install expy-python --user`
-- If you can't convret pd.DataFrame, you should run 'ep.init_ep()' 
+- If you can't convret pd.DataFrame, you should run 'ep.init_ep()'
 
 Call for Contributions:
 ----------------------

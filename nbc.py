@@ -67,13 +67,14 @@ class Converter:
         if type(opt.rm)==type([]):self.remove_file()
         if not opt.no_convert :
             self.convert()
-            print('Finished.')
+            print('Finished')
 
     def convert(self):
         input  = self.input
         output = opt.output if opt.output else '%s.%s'%(opt.input,self.output)
         for filename in (input if opt.hide_bar else tqdm(input)):
-            args = [filename, '--to=%s'%self.output,]
+            args = [filename,
+                    '--to=%s'%self.output,]
             if opt.no_input : args.append('--no-input')
             if self.template: args.append('--template=%s'  %self.template)
             if self.path    : args.append('--output-dir=%s'%self.path)
@@ -114,8 +115,8 @@ class Converter:
         print('Finished.')
 
 def main():
-    converter = Converter()
-    converter()
+    conv = Converter()
+    conv()
 
 if __name__ == '__main__':
     main()

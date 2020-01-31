@@ -21,12 +21,13 @@ end2   = r'}\\'+'\n\t'+r'\label{'      #there is label
 end3   = '}'+'\n'+r'\end{align}'
 
 #基本型
-def to_latex(s='%%',answer=0, x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def to_latex_disp(s='%%',answer=0, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     tex = begin1+x+begin2+ s +newln+ str(answer) +end1+rm+end2+label+end3
     if cp==1:copy(tex);
     if ipynb: return Latex(tex)
     else    : return tex
-def align_latex(unit=[],label='',cp=True,ipynb=True, s=''):
+
+def align_latex_disp(unit=[],label='',cp=True,ipynb=True, s=''):
     tex=''
     for i in range(len(unit)):
         if i!=0:tex+='='
@@ -36,7 +37,8 @@ def align_latex(unit=[],label='',cp=True,ipynb=True, s=''):
     tex = begin + tex + s + end
     if cp==0: print(tex);return tex
     else:           copy(tex);return tex
-def align_asta_latex(unit=[],cp=0):
+
+def align_asta_latex_disp(unit=[],cp=0):
     tex=''
     for i in range(len(unit)):
         if i!=0:tex+='\n\t&='
@@ -46,7 +48,7 @@ def align_asta_latex(unit=[],cp=0):
     if cp==0:  print(tex);return tex
     else:           copy(tex);return tex
 # 計算式をそのままLaTeX出力
-def func(func,sym_all=[],val_all=[],rm_all=None,
+def func_disp(func,sym_all=[],val_all=[],rm_all=None,
                   sym_ans='%%',dig_ans=3,rm_ans='%%',cp=0):
     if type(sym_ans)is not str:
         sym_ans = sym.latex(sym_ans)
@@ -92,10 +94,10 @@ def func(func,sym_all=[],val_all=[],rm_all=None,
     if cp==0:  print(latex_text);return latex_text
     else:           copy(latex_text);return latex_text
 #分数型
-def frac(denom,numer, answer=0, x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def frac_disp(denom,numer, answer=0, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     return to_latex(r'\frac{'+denom+'}{'+numer+'}', answer, x,rm,cp,label)
 #平均
-def mean(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def mean_disp(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     denom =  ''
     for i in range(len(data)):
         if i != 0:denom=denom+'+'
@@ -103,13 +105,13 @@ def mean(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     #LaTeX作成
     return frac(denom,str(len(data)), np.mean(data), x, rm,p,label)
 #不確かさ
-def uncrt(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def uncrt_disp(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     N=len(data);m=np.mean(data);u=uncrt(data)
     #LaTeX作成
     s = '\\sqrt{\\frac{1}{'+str(N)+'\\cdot'+str(N-1)+'}\\sum_{i=1}^'+str(N)+'('+x+'_i-'+str(m)+')^2}'
     return to_latex(s, uncrt(data), r'\Delta'+x,rm,p,label)
 #重平均
-def mean_sq(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def mean_sq_disp(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     denom =  ''
     for i in range(len(data)):
         if i != 0:denom=denom+'+'
@@ -117,7 +119,7 @@ def mean_sq(data, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     #LaTeX作成
     return to_latex(r'\sqrt{'+denom+'}', mean_sq(data), x, rm,p,label)
 #  合成標準不確かさ（非推奨）
-def syn_uncrt(func=sym.Symbol('f'),
+def syn_uncrt_disp(func=sym.Symbol('f'),
                        uncrt_sym=[],
                        uncrt_all=[],
                        sym_all=[sym.Symbol('f')],
@@ -147,7 +149,7 @@ def syn_uncrt(func=sym.Symbol('f'),
     #for i in range(len(uncrt_unit_all)):
     return to_latex(func1+'\n\t&='+func2+'\n\t&='+func3+'\n\t&='+func4,ans,r'\Delta '+x,rm,p,label)
 #  合成標準不確かさ（新型）
-def syn(func,sym_all=[],val_all=[],uncrt_all=[],rm_all=[],
+def syn_disp(func,sym_all=[],val_all=[],uncrt_all=[],rm_all=[],
                   sym_ans='%%',dig_ans=3,rm_ans='%%',cp=0):
     if type(sym_ans)is not str:
         sym_ans = sym.latex(sym_ans)
@@ -221,7 +223,7 @@ def syn(func,sym_all=[],val_all=[],uncrt_all=[],rm_all=[],
     if cp==0:  print(latex_text);return latex_text
     else:       copy(latex_text);return latex_text
 
-def weighted_mean(mean_all, uncrt_all, x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def weighted_mean_disp(mean_all, uncrt_all, x='%%', rm='%%',cp=True,ipynb=True, label=''):
     denom = ''#分子
     numer = ''#分母
     for i in range(len(mean_all)):
@@ -233,7 +235,7 @@ def weighted_mean(mean_all, uncrt_all, x='%%', rm='%%',cp=True,ipynb=True, label
     #LaTeX作成
     return frac(denom,numer,weighted_mean(mean_all,uncrt_all)[0],x,rm,p,label)
 
-def weighted_uncrt(mean_all, uncrt_all,x='%%', rm='%%',cp=True,ipynb=True, label=''):
+def weighted_uncrt_disp(mean_all, uncrt_all,x='%%', rm='%%',cp=True,ipynb=True, label=''):
     numer = '\\sqrt{'#分母
     for i in range(len(mean_all)):
         numer += '\\frac{1}{('+str(uncrt_all[i])+')^2}'
@@ -245,13 +247,13 @@ def weighted_uncrt(mean_all, uncrt_all,x='%%', rm='%%',cp=True,ipynb=True, label
     return frac('1',numer,weighted_mean(mean_all,uncrt_all)[1],x,rm,p,label)
 
 #表出力
-def df(df,label='%%%%',c=None,i=False,cp=0):
+def df_disp(df,label='%%%%',c=None,i=False,cp=0):
     txt_bgn = '\\begin{table}[htb]\\label{'+label+'}\n\t\\centering\n\t\\caption{'+label+'}\n'
     txt_end = '\t\\end{table}\n'
     latex = df.to_latex(index=i,columns=c,escape=False)
     if cp==0: return txt_bgn + latex + txt_end
     else:    copy( txt_bgn + latex + txt_end )
-def alnm():
+def alnm_disp():
     txt=paste();s='';pi=''
     for i in txt:
         if not pi.isalnum() and     i.isalnum():s=s+'$'+i

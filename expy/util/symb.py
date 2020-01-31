@@ -1,5 +1,5 @@
-import sympy as sym
 
+import sympy as sym
 from sympy import symbols as ss
 from sympy import sqrt,sin,cos,tan,exp,log,diff
 
@@ -23,11 +23,9 @@ def diff_(up,down): return ss(r'\frac{d%s}{d%s}'  %(sym.latex(de_),sym.latex(up)
 def part_(up,down): return ss(r'\frac{%s}{%s}'    %(partial_(pa_),partial_(up) ))
 def para_(var,any): return ss(r'%s(%s)' % (var, any))
 
-version= '1.0.0'
-### グローバル変数定義
-DATAPATH    = './data'
-LATEXPATH   = './data/LaTeX'
-LATEXDATAPATHconst= './data/LaTeX/data'
+DATAPATH     = './data'
+LATEXPATH    = './data/LaTeX'
+LATEXDATAPATH= './data/LaTeX/data'
 
 ### 実験定数
 c    = 2.99792458 *10**8
@@ -81,6 +79,7 @@ pi_,rh_,si_,ta_,up_, ph_,ch_,ps_,om_,pa_
 )=sym.symbols(greek_char)
 (Ga_,La_,Si_,Ps_,De_,Xi_,Up_,Om_,Th_,Pi_,Ph_,su_,pr_
 )=sym.symbols(Greek_char)
+
 def alphabet():
     return [a_,b_,c_,d_,e_,f_,g_,h_,i_,j_,k_,l_,m_,n_,o_,p_,q_,r_,s_,t_,u_,v_,w_,x_,y_,z_,
             A_,B_,C_,D_,E_,F_,G_,H_,I_,J_,K_,L_,M_,N_,O_,P_,Q_,R_,S_,T_,U_,V_,W_,X_,Y_,Z_]
