@@ -17,7 +17,7 @@ from sympy import sqrt,sin,cos,tan,exp,log,diff
 from .util.base  import *
 from .util.symb  import *
 
-from .df    import Md, Caption, Df
+from .df    import Md, Caption, Df, Fig
 from .eq    import Var, Eq
 from .func  import F
 
