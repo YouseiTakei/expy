@@ -1,6 +1,6 @@
 """ here is the process related to the display, such as graphs and tables.
     you use here method in ipynb, and this help to convert ipynb to pdf.
-    - expy-python ver.1.2.0 ©tseijp
+    - expy-python ver.1.2.2 ©tseijp
 """
 
 ### packages

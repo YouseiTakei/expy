@@ -1,5 +1,5 @@
 
-# ExPy 1.2.1
+# ExPy 1.2.2
 
 The sophisticated tool needed for scientific computing.
 

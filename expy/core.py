@@ -1,7 +1,7 @@
 """ here is a process that is executed when you import the library.
     this must not to use from util/* file.
     here method can be used in ipynb file.
-    - expy-python ver.1.2.0 ©tseijp
+    - expy-python ver.1.2.2 ©tseijp
 """
 
 import math

@@ -1,6 +1,6 @@
 """ here is a process of simple numerical calculations.
     define a function that return a value calculated on the input value.
-    - expy-python ver.1.2.0 ©tseijp
+    - expy-python ver.1.2.2 ©tseijp
 """
 
 

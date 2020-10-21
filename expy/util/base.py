@@ -1,7 +1,7 @@
 """ here is a basic process that is also used many times,
     such as conversion of numerical values ​​and character.
 
-    - expy-python ver.1.2.0 ©tseijp
+    - expy-python ver.1.2.2 ©tseijp
 """
 import math
 import numpy as np
