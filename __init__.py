@@ -1,2 +1,2 @@
-__version__ = '1.2.2'
-from .expy.core import *
+__version__ = '2.0.0'
+from .src import *

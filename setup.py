@@ -13,15 +13,14 @@ info = sys.version_info
 
 setup(
     name='expy-python',
-    version='1.2.2',
+    version='2.0.0',
     description='The sophisticated tool needed for scientific computing.',
     long_description=readme,
     long_description_content_type='text/markdown',
-    author='Yousei',
+    author='tseijp',
     author_email='yousei_san@icloud.com',
-    url='https://github.com/YouseiTakei/expy',
-    packages=['expy', 'nbc'],#find_packages(),
-    #py_modules=['expy', 'nbc'],# my changed
+    url='https://github.com/tseijp/expy',
+    packages=['expy', 'trans'],
     include_package_data=True,
     keywords='expy',
     classifiers=[
@@ -32,19 +31,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts': ['nbc=nbc.nbc:main'],
+        'console_scripts': ['expy=trans:main'],
     },
     test_suite="test",
 )
-'''
-        'datetime',
-        'math',
-        'matplotlib.pyplot',
-        'numpy',
-        'pandas',
-        'pyperclip',
-        'scipy',
-        'sympy',
-        'time',
-        'tqdm',
-'''
