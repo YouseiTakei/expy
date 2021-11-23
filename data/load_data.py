@@ -11,18 +11,18 @@ LATEXLIST= ["article.tplx", "base.tplx", "style_jupyter.tplx","style_notebook.tp
 
 class DataLoader:
     def __init__(self):
-        ### dir
-        self.dir  = os.path.abspath(os.path.dirname(__file__))
+        # dir
+        self.dir = os.path.abspath(os.path.dirname(__file__))
         self.home = os.environ['USERPROFILE']
         self.expy = os.path.join( os.environ['USERPROFILE'] , '.expy')
-        self.dir_list   =[self.expy]+[os.path.join(self.expy,d) for d in ['html','latex']]
-        ### files
-        self.html_list  =[os.path.join('html',f)  for f in HTMLLIST ]
+        self.dir_list =[self.expy]+[os.path.join(self.expy,d) for d in ['html','latex']]
+        # files
+        self.html_list =[os.path.join('html',f)  for f in HTMLLIST ]
         self.latex_list =[os.path.join('latex',f) for f in LATEXLIST]
-        self.file_list  = self.html_list + self.latex_list
+        self.file_list = self.html_list + self.latex_list
         self.nofile_list=[f for f in self.file_list if not os.path.isfile(os.path.join(self.expy,f))]
-        ### template
-        self.html_temp  = os.path.join(self.dir, os.path.join('html' , 'basic.tpl'))
+        # template
+        self.html_temp = os.path.join(self.dir, os.path.join('html' , 'basic.tpl'))
         self.latex_temp = os.path.join(self.dir, os.path.join('latex', 'style_jupyter.tplx'))
 
     def __call__(self):

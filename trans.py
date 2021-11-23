@@ -11,21 +11,21 @@ from data.load_data import DataLoader
 
 opt = TransOptions().parse()
 app = nbconvertapp.NbConvertApp()
-loader   = DataLoader()
+loader = DataLoader()
 
 class Converter:
     def __init__(self):
         # for setting env
-        self.os       = opt.os
-        self.cwd      = os.getcwd()
-        self.dir      = os.path.abspath(os.path.dirname(__file__))
-        self.expy     = os.path.join( os.environ['USERPROFILE'] , '.expy')
-        self.home     = os.environ['USERPROFILE']
+        self.os = opt.os
+        self.cwd = os.getcwd()
+        self.dir = os.path.abspath(os.path.dirname(__file__))
+        self.expy = os.path.join( os.environ['USERPROFILE'] , '.expy')
+        self.home = os.environ['USERPROFILE']
         # for setting args
-        self.input    = self.init_input()  #return list of file path as C:\U...
-        self.output   = self.init_output()
+        self.input = self.init_input()  #return list of file path as C:\U...
+        self.output = self.init_output()
         self.template = self.init_template()
-        self.path     = self.init_path()
+        self.path = self.init_path()
         # self.exporter = RSTExporter()
 
     def init_input(self):
@@ -70,7 +70,7 @@ class Converter:
             print('Finished')
 
     def convert(self):
-        input  = self.input
+        input = self.input
         output = opt.output if opt.output else '%s.%s'%(opt.input,self.output)
         for filename in (input if opt.hide_bar else tqdm(input)):
             args = [filename,
